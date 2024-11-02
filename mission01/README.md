@@ -30,12 +30,19 @@ function getValueAtObject(obj, key) {
 }
 
 코드 풀이 : 핵심은 객체의 키값을 안전하게 받아오는것.
+
 obj, key는 두 개의 매개변수 obj와 key를 받는 함수입니다.
+
 obj는 값을 가져오고자 하는 객체이고, key는 그 객체의 속성 이름입니다.
+
 obj[key] !== undefined: 이 조건은 obj 객체에서 key에 해당하는 값을 가져와서 그것이 undefined가 아닌지 확인합니다.
+
 obj[key]는 key에 해당하는 속성의 값을 반환합니다. 만약 그 속성이 존재하지 않으면 undefined를 반환합니다.
+
 ?는 삼항 연산자를 사용하여 조건을 평가합니다.
+
 **참일 경우:** obj[key]를 반환합니다.
+
 **거짓일 경우:** "값이 틀려 다시 생각해봐."라는 error를 반환합니다.
 
 ---
@@ -63,7 +70,9 @@ console.log(getNumberAtArray(numbers, -1)); // Error!
 
 
 생각한 방법 : 예시코드는 동작을 위해 함수 밖에 배치해주고 if문으로 유효범위를 지정한다. 조건은 인덱스가 배열의 유효한 범위내에 존재해야함.
+
 그러니, 예시코드는 총 5개니까 인덱스넘버는 = [0,1,2,3,4] 니까 length = 4 시작 length는 0 즉, 0-4번 사이에 존재하는 index값이 찍히면 에러가 안뜨게 구조설계를하면됨.
+
 &&연산자를 쓰면 좋을거같다고 생각했습니당.
 
 그렇게 나온 결과물..
@@ -77,7 +86,11 @@ function getNumberAtArray(arr, index) {
 }
 
 코드풀이: 함수 시그니처에 arr, index 두 개의 매개변수 arr와 index 받는 함수입니다.
+
 if문은 인덱스 넘버는 0보다 크거나 같은 수여야하고 또 arr.length = numbers.length = 4를 넘지말아야한다는 조건으로 코드를 짰습니다.
+
 return값은 arr = number배열 , index = number의 인덱스 넘버로 지정하려고 하였고 만약 음수가 나오거나, 4를 넘을 시, return문을 사용해 에러를 띄워주도록 설계하였습니다.
+
 **참일 경우:** arr[index]를 반환합니다.
+
 **거짓일 경우:** "잘못된거 너도 알지? 반성해"라는 error를 반환합니다.
